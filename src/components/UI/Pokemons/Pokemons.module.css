@@ -1,0 +1,14 @@
+.PokemonsStyle {
+    border: 1px solid #ccc;
+    min-height: 3100px;
+    padding: 25px;
+    margin: 25px auto;
+    background-color: white;
+
+}
+
+@media (max-width: 999px) {
+    .PokemonsStyle{
+        min-height: 5900px;
+    }
+}

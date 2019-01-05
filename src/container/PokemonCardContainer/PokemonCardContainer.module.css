@@ -1,0 +1,6 @@
+.PokemonCardContainer {
+    border: 1px solid #ccc;
+    min-height: 450px;
+    padding: 25px;
+    background-color: white;
+}

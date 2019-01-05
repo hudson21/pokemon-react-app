@@ -1,0 +1,10 @@
+.Logo {
+    margin: 80px auto;
+
+}
+
+.Logo Img {
+    display: block;
+    margin: 0 auto;
+    width: 220px;
+}

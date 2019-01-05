@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  .Form input[type=text] {
+    padding: 10px;
+    font-size: 22px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 90%;
+    background: white;
+    border-left: none;
+    color: #FDFBF8;
+  }
+  
+  /* Style the submit button */
+  .Form button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: white;
+    color: grey;
+    font-size: 22px;
+    border: 1px solid #ccc;
+    border-right: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+ 
+  
+  /* Clear floats */
+  .Form::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
