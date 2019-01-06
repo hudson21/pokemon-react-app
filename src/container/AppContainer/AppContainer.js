@@ -5,11 +5,14 @@ import axios from 'axios';
 import Search from '../../components/UI/Search/Search';
 import PokemonCardContainer from '../../container/PokemonCardContainer/PokemonCardContainer';
 import Pokemons from '../../components/UI/Pokemons/Pokemons';
+import Pagination from '../../components/UI/Pagination/Pagination';
 
 class AppContainer extends Component {
     state = {
         pokemons:null,
-        pokemon:null
+        pageOfItems: null,
+        pokemon:null,
+        valueSearch: ''
     }
 
     componentWillMount() {
@@ -28,8 +31,16 @@ class AppContainer extends Component {
         this.setState({pokemon:props});
     }
 
-    render() {
-        console.log(this.state.pokemon)
+    onChangeSearch = (event) => {
+        this.setState({valueSearch: event.target.value})
+    }
+
+    onChangePage = (pageOfItems) => {
+        // update state with new page of items
+        this.setState({ pageOfItems: pageOfItems });
+    }
+
+    render() { 
         return (
             <div className="container">
                 <div className="row">
@@ -51,12 +62,24 @@ class AppContainer extends Component {
                     </div>
                     
                     <div className="col-xs-12 col-lg-8">
-                        <Search />
-                        {this.state.pokemons ? 
-                            <Pokemons 
-                                pokemonsData={this.state.pokemons}
-                                click={this.clickPokemon}/>
-                        : null}
+                        <Search 
+                            change={this.onChangeSearch}
+                            value={this.state.valueSearch}/>
+                        {this.state.pageOfItems
+                            ? <Pokemons 
+                                pokemonsData={this.state.pageOfItems}
+                                click={this.clickPokemon}
+                                />
+                            : null}
+                       
+                        <div className='text-center'>
+                            {this.state.pokemons
+                                ? <Pagination 
+                                    items={this.state.pokemons}
+                                    onChangePage={this.onChangePage}/>
+                                : null}
+                        </div>
+                        
                     </div>
                 </div>
             </div>

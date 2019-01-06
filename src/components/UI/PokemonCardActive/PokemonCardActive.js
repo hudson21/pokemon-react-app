@@ -13,7 +13,10 @@ const PokemonCardActive = (props) => {
 
             <div className='row'>
                 <div className='col-lg-6'>
-                    <img src={props.image} alt='Pokemon' />
+                    {props.image
+                        ? <img src={props.image} alt='Pokemon' />
+                        : <span style={{color: 'red'}}>There is not image of this pokemon</span>}
+                    
                 </div>
                 <div className='col-lg-6'>
                     <Percentages 

@@ -17,6 +17,12 @@ class Pokemon extends Component {
              .then(response => this.setState({pokemon: response.data}))
              .catch(error => console.log(error))
     }
+
+    componentDidUpdate() {
+        axios.get(`${this.props.url}`)
+             .then(response => this.setState({pokemon: response.data}))
+             .catch(error => console.log(error))
+    }
     
     render(){
         return (

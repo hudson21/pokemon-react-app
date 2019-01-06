@@ -1,27 +1,24 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classes from './Pokemons.module.css';
 
 //Components
 import Pokemon from './Pokemon/Pokemon';
 
-const Pokemons = (props) => {
-
-    let orderPokemons =  props.pokemonsData.map((pokemon, index) => {
-        if(!props.base && !props.final){
-            return (index >= 0 && index <= 49) 
-                    ? <Pokemon 
-                        key={index} 
-                        url={pokemon.url}
-                        click={props.click}/>
-                    : null;
-        }
-    });
+class Pokemons extends Component {
     
-    return (
-        <div className={classes.PokemonsStyle}>
-            {orderPokemons}
-        </div>
-    );
+    render() {
+        return (
+            <div className={classes.PokemonsStyle}>
+                {this.props.pokemonsData.map((pokemon, index) => {
+                    return <Pokemon
+                                pokemonsData={this.props.pokemonsData} 
+                                key={index} 
+                                url={pokemon}
+                                click={this.props.click}/> })}
+            </div>
+        );
+    }
+    
 };
 
 export default Pokemons;
