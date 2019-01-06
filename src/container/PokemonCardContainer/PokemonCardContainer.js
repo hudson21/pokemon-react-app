@@ -7,11 +7,13 @@ import PokemonCardActive from '../../components/UI/PokemonCardActive/PokemonCard
 import PokemonCardEmpty from '../../components/UI/PokemonCardEmpty/PokemonCardEmpty';
 
 const PokemonCardContainer = (props) => {
-
+    
     return (
         <div className={classes.PokemonCardContainer}>
-            <PokemonCardActive/>
-            <PokemonCardEmpty />
+            {props.id 
+                ?<PokemonCardActive 
+                    {...props}/>
+                :<PokemonCardEmpty />}
         </div>
     );
 };

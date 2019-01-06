@@ -18,18 +18,13 @@ class Pokemon extends Component {
              .catch(error => console.log(error))
     }
     
-    
     render(){
-        console.log(this.state.pokemon)
         return (
             <Auxiliar>
                 {this.state.pokemon 
                     ? <RenderPokemon 
-                        id={this.state.pokemon.id}
-                        name={this.state.pokemon.name}
-                        type={this.state.pokemon.types[0].type.name}
-                        image={this.state.pokemon.sprites.front_default}/> 
-                      
+                        {...this.state.pokemon}
+                        click={this.props.click}/> 
                     : null}
             </Auxiliar>
         );

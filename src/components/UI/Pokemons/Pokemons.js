@@ -9,7 +9,10 @@ const Pokemons = (props) => {
     let orderPokemons =  props.pokemonsData.map((pokemon, index) => {
         if(!props.base && !props.final){
             return (index >= 0 && index <= 49) 
-                    ? <Pokemon key={index} name={pokemon.name} url={pokemon.url}/>
+                    ? <Pokemon 
+                        key={index} 
+                        url={pokemon.url}
+                        click={props.click}/>
                     : null;
         }
     });

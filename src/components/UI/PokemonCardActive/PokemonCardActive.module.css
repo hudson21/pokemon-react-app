@@ -1,0 +1,19 @@
+.PokemonCardActive h3{
+    text-align: center; 
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.PokemonCardActive h4 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+
+.PokemonCardActive img {
+    width: 160px;
+}
+
+.PokemonCardActive hr{
+    border:0.9px solid #ccc;
+}
