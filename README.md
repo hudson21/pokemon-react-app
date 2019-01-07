@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## The project was made with Reactjs, so in the case that you dont have the tools for 
-executing this project you willl need to install this programs:
+## executing this project you willl need to install this programs:
 1. Install node.js --> https://nodejs.org/es/download/
 2. Run the command npm install -g create-react-app
 
