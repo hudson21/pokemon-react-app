@@ -10,6 +10,15 @@
     margin-right: 2px;
 }
 
+.Span {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: white;
+}
+
 @media (max-width: 999px) {
     .SearchResults div{
         display: block;
