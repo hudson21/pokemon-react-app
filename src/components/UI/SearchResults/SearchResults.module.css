@@ -9,3 +9,10 @@
     display: inline-block;
     margin-right: 2px;
 }
+
+@media (max-width: 999px) {
+    .SearchResults div{
+        display: block;
+        text-align: center;
+    }
+}

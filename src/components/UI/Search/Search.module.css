@@ -27,11 +27,15 @@
     cursor: pointer;
   }
   
- 
-  
   /* Clear floats */
   .Form::after {
     content: "";
     clear: both;
     display: table;
+  }
+
+  @media (max-width: 999px) {
+    .Form{
+        margin-top: 25px;
+    }
   }
