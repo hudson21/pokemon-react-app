@@ -18,9 +18,9 @@ class PokemonCardActive extends Component{
                 <h3><strong>#{this.props.id} - {this.props.name}</strong></h3>
     
                 <div className='row'>
-                    <div className='col-lg-6'>
+                    <div className="col-lg-6">
                         {this.props.image
-                            ? <img src={this.props.image} alt='Pokemon' />
+                            ? <img src={this.props.image} alt='Pokemon' className={classes.Img}/>
                             : <span style={{color: 'red'}}>There is not image of this pokemon</span>}
                         
                     </div>
