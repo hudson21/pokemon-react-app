@@ -20,7 +20,7 @@ const Pokemon = (props) =>  {
                 : null}
             <span className={classes.Id}>{props.id}</span>
             <div >{props.name}</div>
-            <div style={{color: '#999995', fontSize: '18px'}}>
+            <div >
                 Type: {props.types[0].type.name}
             </div>             
         </div>

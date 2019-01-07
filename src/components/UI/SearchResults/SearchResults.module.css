@@ -1,7 +1,7 @@
 .SearchResults {
     border: 1px solid #ccc;
     width: 100%;
-    background-color: white;
+    background-color: #13A5F5;
 }
 
 .SearchResults div {
@@ -12,11 +12,11 @@
 
 .Span {
     text-align: center;
-    color: red;
+    color: black;
     font-size: 18px;
     border: 1px solid #ccc;
     width: 100%;
-    background-color: white;
+    background-color: #13A5F5;
 }
 
 @media (max-width: 999px) {

@@ -3,8 +3,7 @@
     min-height: 3100px;
     padding: 25px;
     margin: 25px auto;
-    background-color: white;
-
+    background-color: #13A5F5;
 }
 
 @media (max-width: 999px) {

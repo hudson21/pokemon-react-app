@@ -10,7 +10,7 @@ const Percentages = (props) => {
             </div>
             <div className="col-xs-8 col-lg-8">
                 <div className="progress" style={{float:'right'}}>
-                    <div className="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                    <div className="progress-bar progress-bar-striped" role="progressbar"
                      aria-valuemin="0" aria-valuemax="100" style={{width:`${props.value}%`}}>
                         {`${props.value}`}% Complete (success)
                     </div>

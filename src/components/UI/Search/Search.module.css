@@ -10,7 +10,7 @@
     border: 1px solid #ccc;
     float: left;
     width: 90%;
-    background: white;
+    background-color: #13A5F5;
     border-left: none;
     color:black;
   }
@@ -20,7 +20,7 @@
     float: left;
     width: 10%;
     padding: 10px;
-    background: white;
+    background-color: #13A5F5;
     color: grey;
     font-size: 22px;
     border: 1px solid #ccc;
