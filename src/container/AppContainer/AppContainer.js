@@ -12,19 +12,30 @@ class AppContainer extends Component {
         pokemons:null,
         pageOfItems: null,
         pokemon:null,
-        valueSearch: ''
+        valueSearch: '',
+        pokemonsToRender: null
     }
 
     componentWillMount() {
-        this.fetchPokemons();
+        this.fetchAllPokemons();
     }
 
-    fetchPokemons = ( ) => {
+    fetchAllPokemons = ( ) => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/`)
              .then(response => {
                  this.setState({pokemons: response.data.results})
              })
              .catch(error => console.log(error));
+    }
+
+    fetchPokemonsToRender = (pokemons) => {        
+        let promiseArray = pokemons.map(url => axios.get(url));
+        axios.all(promiseArray)
+        .then((results) => {
+            let temp = results.map(r => r.data);
+            return temp
+        })
+        .then(data => this.setState({pokemonsToRender: data}))
     }
 
     clickPokemon = ({props}) => {
@@ -37,6 +48,7 @@ class AppContainer extends Component {
 
     onChangePage = (pageOfItems) => {
         // update state with new page of items
+        this.fetchPokemonsToRender(pageOfItems);
         this.setState({ pageOfItems: pageOfItems });
     }
 
@@ -67,7 +79,7 @@ class AppContainer extends Component {
                             value={this.state.valueSearch}/>
                         {this.state.pageOfItems
                             ? <Pokemons 
-                                pokemonsData={this.state.pageOfItems}
+                                pokemonsData={this.state.pokemonsToRender}
                                 click={this.clickPokemon}
                                 />
                             : null}

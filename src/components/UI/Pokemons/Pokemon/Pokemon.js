@@ -1,40 +1,28 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-import Auxiliar from '../../../../hoc/Auxiliar/Auxiliar';
+import classes from './Pokemon.module.css';
 
-//Components
-import RenderPokemon from './RenderPokemon';
 
-class Pokemon extends Component {
+const Pokemon = (props) =>  {
 
-    state = {
-        pokemon:null
-    }
-
-    componentWillMount() {
-        axios.get(`${this.props.url}`)
-             .then(response => this.setState({pokemon: response.data}))
-             .catch(error => console.log(error))
-    }
-
-    componentDidUpdate() {
-        axios.get(`${this.props.url}`)
-             .then(response => this.setState({pokemon: response.data}))
-             .catch(error => console.log(error))
-    }
+    return (
+        <div onClick={()=> props.click({props})} 
+            className={`${classes.RenderPokemon} col-xs-6 col-lg-3`}>
+            {props.sprites.front_default 
+                ? <img src={props.sprites.front_default} alt='Pokemon Logo' />
+                : <span style={{color: 'red'}}>There is not image of this pokemon</span>}
+            
+            {!props.sprites.front_default
+                ? <br/>
+                : null}
+            <span className={classes.Id}>{props.id}</span>
+            <div >{props.name}</div>
+            <div style={{color: '#999995', fontSize: '18px'}}>
+                Type: {props.types[0].type.name}
+            </div>             
+        </div>
+    );
     
-    render(){
-        return (
-            <Auxiliar>
-                {this.state.pokemon 
-                    ? <RenderPokemon 
-                        {...this.state.pokemon}
-                        click={this.props.click}/> 
-                    : null}
-            </Auxiliar>
-        );
-    }
 };
 
 export default Pokemon;
