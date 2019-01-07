@@ -6,6 +6,7 @@ import Search from '../../components/UI/Search/Search';
 import PokemonCardContainer from '../../container/PokemonCardContainer/PokemonCardContainer';
 import Pokemons from '../../components/UI/Pokemons/Pokemons';
 import Pagination from '../../components/UI/Pagination/Pagination';
+import SearchResults from '../../components/UI/SearchResults/SearchResults';
 
 class AppContainer extends Component {
     state = {
@@ -38,8 +39,8 @@ class AppContainer extends Component {
         .then(data => this.setState({pokemonsToRender: data}))
     }
 
-    clickPokemon = ({props}) => {
-        this.setState({pokemon:props});
+    clickPokemon = ({pokemon}) => {
+        this.setState({pokemon, valueSearch: ''});
     }
 
     onChangeSearch = (event) => {
@@ -49,7 +50,11 @@ class AppContainer extends Component {
     onChangePage = (pageOfItems) => {
         // update state with new page of items
         this.fetchPokemonsToRender(pageOfItems);
-        this.setState({ pageOfItems: pageOfItems });
+        this.setState({ 
+            pageOfItems: pageOfItems, 
+            valueSearch: '', 
+            pokemon: null 
+        });
     }
 
     render() { 
@@ -77,6 +82,12 @@ class AppContainer extends Component {
                         <Search 
                             change={this.onChangeSearch}
                             value={this.state.valueSearch}/>
+                        {this.state.valueSearch !== ''
+                            ? <SearchResults 
+                                pokemons={this.state.pokemonsToRender}
+                                value={this.state.valueSearch}
+                                click={this.clickPokemon}/>
+                            : null}
                         {this.state.pageOfItems
                             ? <Pokemons 
                                 pokemonsData={this.state.pokemonsToRender}

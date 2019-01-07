@@ -1,0 +1,11 @@
+.SearchResults {
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: white;
+}
+
+.SearchResults div {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 2px;
+}

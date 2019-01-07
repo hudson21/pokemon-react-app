@@ -5,8 +5,11 @@ import classes from './Pokemon.module.css';
 
 const Pokemon = (props) =>  {
 
+    const pokemon = props;
+
     return (
-        <div onClick={()=> props.click({props})} 
+        
+        <div onClick={()=> props.click({pokemon})} 
             className={`${classes.RenderPokemon} col-xs-6 col-lg-3`}>
             {props.sprites.front_default 
                 ? <img src={props.sprites.front_default} alt='Pokemon Logo' />

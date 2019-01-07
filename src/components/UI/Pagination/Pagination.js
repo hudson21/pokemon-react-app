@@ -26,9 +26,9 @@ class Pagination extends Component {
     }
 
     setPage(page) {
-        var { items, pageSize } = this.props;
-        var transformedItems = items.map(item => item.url);
-        var pager = this.state.pager;
+        const { items, pageSize } = this.props;
+        const transformedItems = items.map(item => item.url);
+        let pager = this.state.pager;
 
         if (page < 1 || page > pager.totalPages) {
             return;
@@ -38,7 +38,7 @@ class Pagination extends Component {
         pager = this.getPager(items.length, page, pageSize);
 
         // get new page of items from items array
-        var pageOfItems = transformedItems.slice(pager.startIndex, pager.endIndex + 1);
+        const pageOfItems = transformedItems.slice(pager.startIndex, pager.endIndex + 1);
 
         // update state
         this.setState({ pager: pager });
@@ -55,9 +55,9 @@ class Pagination extends Component {
         pageSize = pageSize || 10;
 
         // calculate total pages
-        var totalPages = Math.ceil(totalItems / pageSize);
+        const totalPages = Math.ceil(totalItems / pageSize);
 
-        var startPage, endPage;
+        let startPage, endPage;
         if (totalPages <= 10) {
             // less than 10 total pages so show all
             startPage = 1;
@@ -77,11 +77,11 @@ class Pagination extends Component {
         }
 
         // calculate start and end item indexes
-        var startIndex = (currentPage - 1) * pageSize;
-        var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
+        const startIndex = (currentPage - 1) * pageSize;
+        const endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
         // create an array of pages to ng-repeat in the pager control
-        var pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
+        const pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
 
         // return object with all pager properties required by the view
         return {
